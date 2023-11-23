@@ -1,31 +1,35 @@
-class Item:
-    def __init__(self, num):
-        self.index = 0
-        self.number = num
+from LinkedList import LinkedList
+from LinkedList import Item
 
-    def print(self):
-        print(self.number)
+LL = LinkedList()
 
+loop = True
 
+while(loop):
+    print("1. Push")
+    print("2. Pop")
+    print("3. Print Stack")
+    print("99. Quit")
 
-class LinkedList:
-    def __init__(self):
-        self.__list = []
+    choice = int(input("select option :"))
 
-    def push(self, Item):
-        self.__list.append(Item)
+    match choice:
+        case 1:
+            val = input("enter int val to push\n")
+            x = Item(val)
+            LL.push(x)
+        
+        case 2:
+            element = LL.pop()
+            print("removed {} from stack".format(element.number))
 
-    def print(self):
-        for index, item in enumerate(self.__list):
-            item.print()
+        case 3:
+            LL.print()
 
+        case 99:
+            loop = False
 
-item1 = Item(11)
-item2 = Item(222)
-
-X = LinkedList()
-
-X.push(item1)
-X.push(item2)
-
-X.print()
+        case _:
+            print("invalid choice")
+        
+        
