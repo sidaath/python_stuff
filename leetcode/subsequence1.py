@@ -6,8 +6,10 @@ def is_subsequence(string : str, text: str) -> bool:
 
     if(len(string) != 0 and len(text) == 0):
         return False
-
-    print("   for loop text = ", string)
+    
+    if(len(string) == 0 and len(text)!= 0):
+        return True
+    
     for char in text:
         if (char == string[pointer_string]):
             pointer_string = pointer_string + 1
