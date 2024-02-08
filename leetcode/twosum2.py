@@ -5,15 +5,8 @@ def two_sum(numbers : list[int], target: int)->list[int]:
     for index, number in enumerate(numbers):
         req_num = target - number
         try:
-            idx_two = numbers.index(req_num)
-            if(idx_two == index):
-                try:
-                    idx_two = numbers.index(req_num, index+1)
-                    return([index+1, idx_two+1])
-                except:
-                    continue
-            else:
-                return([index+1, idx_two+1])
+            idx_two = numbers.index(req_num, index+1)
+            return([index+1, idx_two+1])
         except:
             continue
     return[0,0]
@@ -24,7 +17,8 @@ tests : list[tuple[int, list[int], list[int]]] = [
     (0, [1,2], [0,0,3,4]),
     (9, [1,2], [2,7,11,15]),
     (6, [1,3], [2,3,4]),
-    (-1,[1,2], [-1,0])
+    (-1,[1,2], [-1,0]),
+    (77, [9,14], [1,3,4,6,7,8,9,12,34,55,89,90,56,43])
 ]
 
 
