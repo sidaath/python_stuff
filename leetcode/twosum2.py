@@ -1,15 +1,14 @@
 def two_sum(numbers : list[int], target: int)->list[int]:
-    req_num : int = 0
-    idx_two : int = 0
+    left_idx    : int = 0
+    right_idx   : int = len(numbers)-1
 
-    for index, number in enumerate(numbers):
-        req_num = target - number
-        try:
-            idx_two = numbers.index(req_num, index+1)
-            return([index+1, idx_two+1])
-        except:
-            continue
-    return[0,0]
+    while(numbers[left_idx] + numbers[right_idx] != target):
+        if(numbers[left_idx] + numbers[right_idx] > target):
+            right_idx = right_idx - 1
+        else:
+            left_idx = left_idx + 1
+    
+    return([left_idx+1, right_idx+1])
 
 
 
