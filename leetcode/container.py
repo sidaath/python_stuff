@@ -11,12 +11,15 @@ def max_area(heights : list[int], debug:bool = False) -> int:
     c_width     : int = 0
 
     while(left_idx != right_idx):
-        c_width = right_idx - left_idx
-        c_height = min(heights[left_idx], heights[right_idx])
-        c_area = c_width * c_height
+        # c_width = right_idx - left_idx
+        # c_height = min(heights[left_idx], heights[right_idx])
+        # c_area = c_width * c_height
 
-        if(c_area > c_max):
-            c_max = c_area
+        # if(c_area > c_max):
+        #     c_max = c_area
+
+        if(((right_idx - left_idx)*(min(heights[left_idx], heights[right_idx]))) > c_max):
+            c_max = ((right_idx - left_idx)*(min(heights[left_idx], heights[right_idx])))
         
         if(heights[left_idx] > heights[right_idx]):
             right_idx = right_idx - 1
